@@ -10,7 +10,7 @@ PROJECT_DATA = {
              ["HTML", "CSS", "JavaScript", "Bootstrap", "Flask"],
              ["HTML", "CSS", "JavaScript", "Flask"]],
 
-    "img_path": ["images/edomain.png", "images/MCT.png", "images/Interact.png"],
+    "img_path": ["images/edomain.png", "images/MCT.png", "images/interact.png"],
 
     "description": ["Edomain is a website built for a gaming event. It provides basic information about the event and "
                     "allows the user to register for the event by creating an account that will provide them with a "
