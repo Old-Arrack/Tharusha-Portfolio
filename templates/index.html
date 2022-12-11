@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Tharusha Gunawardane | Programmer</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Poiret+One&family=Raleway+Dots&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
+
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/72c8109cb1.js" crossorigin="anonymous"></script>
+
+    <!--Google Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,100,0,0" />
+
+    <!--Local CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <input id="MailState" class="no-display" value="{{ msg_status }}">
+    <nav class="navbar flex-div hide-elem appear">
+        <div class="max-width">
+            <a class="nav-logo"  href="{{ url_for('home') }}">
+                <img class="hexagon" src="{{ url_for('static', filename='images/hexagon.png') }}">
+                <p class="nav-brand smooth-font-size">t</p>
+            </a>
+        </div>
+
+        <ul class="nav-list flex-div smooth-font-size">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#About">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Message">Message</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="Home" class="flex-div">
+        <div class="home-description">
+            <div class="greet-container flex-div">
+                <h1 class="greet smooth-font-size"></h1>
+                <div class="text-cursor blink-cursor greet-cursor">I</div>
+            </div>
+
+            <div class="intro-container flex-div">
+                <p class="intro smooth-font-size"></p>
+                <div class="text-cursor hide-elem intro-cursor">I</div>
+            </div>
+
+            <div class="button-box mywork-dim hide-elem appear" onclick="GoToProjects()">
+                <div class="button mywork-btn smooth-font-size">Check out some of my work!</div>
+                <div class="button button-shadow mywork-btn">Check out some of my work!</div>
+            </div>
+        </div>
+
+        <div id="Contact" class="hide-elem appear">
+            <div class="contact-box">
+                <img class="contact-img" src="{{ url_for('static', filename='images/github.png') }}">
+                <div id="Github" class="contact-info">
+                    <a class="fa-solid fa-arrow-up-right-from-square contact-ico" href="https://github.com/Old-Arrack" target="_blank"></a>
+                    <p class="contact-text">Github</p>
+                </div>
+            </div>
+
+            <div class="contact-box" onmouseout="ClearColor('ContactNumber')">
+                <img class="contact-img" src="{{ url_for('static', filename='images/phone.png') }}"><br>
+                <div id="Phone" class="contact-info">
+                    <i class="fa-regular fa-copy contact-ico" onclick="CopyText('ContactNumber')"></i>
+                    <p id="ContactNumber" class="contact-text">075 558 1089</p>
+                </div>
+            </div>
+
+            <div class="contact-box" onmouseout="ClearColor('EmailAddress')">
+                <img class="contact-img" src="{{ url_for('static', filename='images/mail.png') }}"><br>
+                <div id="Email" class="contact-info">
+                    <i class="fa-regular fa-copy contact-ico" onclick="CopyText('EmailAddress')"></i>
+                    <p id="EmailAddress" class="contact-text">tharushadgunawardane@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="contact-box">
+                <img class="contact-img" src="{{ url_for('static', filename='images/linkedin.png') }}">
+                <div id="LinkedIn" class="contact-info">
+                    <a class="fa-solid fa-arrow-up-right-from-square contact-ico" href="https://www.linkedin.com/in/tharusha-gunawardane-80a014252/" target="_blank"></a>
+                    <p class="contact-text">LinkedIn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="About" class="hide-elem appear">
+        <h1 class="section-header">About me</h1>
+        <p class="section-para">I'm a programmer, and like every rookie coder, my interest in coding began because I wanted to learn to hack and develop games. So, I enrolled in an IT Diploma. In the process, I came to realize my passion for web development. I enjoyed minimalist designs and most of all I loved the ability to give functionality and a purpose to beautiful designs.</p>
+        <p class="section-para">Since then, for almost 4 years, I've been learning and working in programming field. I'm looking forward to learning new skills and assist your projects with my expertise in coding.<span class="download click"><a href="{{ url_for('static', filename='files/Tharusha-Gunawardane-cv.pdf') }}">Download my Résumé</a></span> for more info.</p>
+
+        <div class="me-container">
+            <img class="me-img" src="{{ url_for('static', filename='images/Me.png') }}">
+            <div class="skill-container">
+                <p class="skill html">HTML</p>
+                <p class="skill css">CSS</p>
+                <p class="skill js">JavaScript</p>
+                <p class="skill flask">Flask</p>
+                <p class="skill selenium">Selenium</p>
+                <p class="skill sqlalchemy">SQLAlchemy</p>
+                <p class="skill bootstrap">Bootstrap</p>
+                <p class="skill beautifulsoup">BeautifulSoup</p>
+                <p class="skill python">Python</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Projects" class="hide-elem appear">
+        <h1 class="section-header">Projects that I've worked on</h1>
+
+        {% for i in range(data['size']): %}
+        {% if i > 0: %}
+        <div id="{{ data['id'][i] }}" class="no-display">
+        {% else %}
+        <div id="{{ data['id'][i] }}">
+        {% endif %}
+            <div class="carousal-box">
+                <div class="chevron-box click left-caret" onclick="GoToLeft();">
+                    <img src="{{ url_for('static', filename='images/chevron.png') }}" class="chevron">
+                </div>
+
+                <div class="tile">
+                    <img class="tile-img" src="{{ url_for('static', filename=data['img_path'][i]) }}">
+                    {% if data['name'][i] == "Edomain": %}
+                    <div class="tag-box edomain-pos">
+                    {% else %}
+                    <div class="tag-box mct-pos">
+                    {% endif %}
+                        {% for tag in data['tags'][i] %}
+                        <p class="tag">{{ tag }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="chevron-box click right-caret" onclick="GoToRight();">
+                    <img src="{{ url_for('static', filename='images/chevron.png') }}" class="chevron">
+                </div>
+            </div>
+
+            <div class="carousal-footer">
+                <div class="slide-box">
+                    {% for slide in range(data['size']): %}
+                    {% if slide == i %}
+                    <hr class="slide active">
+                    {% else %}
+                    <hr class="slide">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="tile-description">
+                <div class="tile">
+                    <h1 class="section-header no-border">{{ data['name'][i] }}</h1>
+                    <p class="Edomain section-para">{{ data['description'][i] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section id="Message" class="hide-elem appear">
+        <h1 class="section-header">Message me</h1>
+        {% if msg_status: %}
+            {% if msg_status == '200': %}
+            <p class="section-para" style="color: green">Message sent! Will get back to you as soon as possible.</p>
+            {% else %}
+            <p class="section-para" style="color: red">Failed to send message. Please try again later.</p>
+            {% endif %}
+        {% else %}
+        <p class="section-para">Got any general questions or want to discuss a project? Send me a message and I'll get back to you as soon as possible.</p>
+        {% endif %}
+
+        <form class="message-box" action="{{ url_for('send_msg') }}" method="POST">
+            <div class="flex-div">
+                <div class="input-box">
+                    <div class="label-box flex-div">
+                        <label>Name</label><label class="warning"></label>
+                    </div>
+                    <input id="NameEntry" name="name" type="text" placeholder="Frank Castle" onfocus="ActiveEntry(this)" onfocusout="InactiveEntry(this)">
+                </div>
+
+                <div class="input-box email-box">
+                    <div class="label-box flex-div">
+                        <label>Email</label><p class="warning"></p>
+                    </div>
+                    <input id="EmailEntry" name="email" type="email" placeholder="example@gmail.com" onfocus="ActiveEntry(this)" onfocusout="InactiveEntry(this)">
+                </div>
+            </div>
+            <div class="label-box flex-div">
+                <label>Message</label><label class="warning"></label>
+            </div>
+            <textarea id="MessageEntry" name="msg" class="message" placeholder="Hello" onfocus="ActiveEntry(this)" onfocusout="InactiveEntry(this)"></textarea>
+
+            <div class="send-box flex-div">
+                <div id="SendBtn" class="button-box send-dim">
+                    <div class="button send-btn">Send</div>
+                    <div class="button button-shadow send-btn send-shadow">Send</div>
+                </div>
+            </div>
+            <button class="no-display" type="submit"></button>
+        </form>
+    </section>
+
+    <footer>
+        <div>
+            <h1 class="footer-title smooth-font-size">Credits</h1>
+
+            <div class="link-box">
+                <ul>
+                    <li>
+                        <a class="footer-link" href="https://www.freepik.com/free-vector/black-wavy-shapes-background_12628440.htm#page=2&query=wallpaper%20black%20background&position=0&from_view=keyword">
+                            Image by coolvector on Freepik <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">
+                            Linkedin icons created by Freepik - Flaticon <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/free-icons/github" title="github icons">
+                            Github icons created by Freepik - Flaticon <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/free-icons/contact" title="contact icons">
+                            Contact icons created by Freepik - Flaticon <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/free-icons/email" title="email icons">
+                            Email icons created by Uniconlabs - Flaticon <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/authors/roundicons-premium" title="Roundicons Premium">
+                            Icons made by Roundicons Premium from www.flaticon.com <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/authors/cursor-creative" title="Cursor Creative">
+                            Icons made by Cursor Creative from www.flaticon.com <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="footer-link" href="https://www.flaticon.com/authors/iconkanan" title="IconKanan">
+                            Icons made by IconKanan from www.flaticon.com <img class="arrow-up-right-from-square" src="{{ url_for('static', filename='images/share.png') }}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <img class="space github-code" src="{{ url_for('static', filename='images/github-code.png') }}">
+            <p class="space flex-div">Find the code of this website on &nbsp;<a href="github" class="reference-link">Github</a></p>
+        </div>
+
+        <p class="copyright">&copy; Tharusha Gunawardane 2022 — All rights reserved.</p>
+    	<script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    </footer>
+</body>
+</html>

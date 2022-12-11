@@ -1,0 +1,1050 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+	background: #181a23;
+	color: #ffffff;
+	min-height: 100%;
+	padding: 0;
+}
+	/* sets the body height of the browser, so that backgrounds and div heights work correctly. Color and background will almost certainly be altered; they are just placeholders */
+
+body {
+    font-family: "Raleway", sans-serif;
+	font-size: 1.4rem;
+	font-weight: 100;
+	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	transition: font-size 1s;
+}
+	/* sets the base font size for the document; turns on kerning pairs and ligatures */
+
+body, ul, ol, dl, h1, p{
+	margin: 0;
+}
+article, aside, audio,
+footer, header, nav, section, video {
+	display: block;
+	}
+
+	/* ensures that older browsers will display HTML5 elements correctly */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+	/* begins to set up font sizes relative to base rem – h1 has been used as an example */
+
+
+textarea {
+	resize: vertical;
+}
+ /* changes textarea resizing from "both" (UA default) to vertical only */
+
+img {
+	border: none;
+	max-width: 100%;
+}
+	/* removes outlines from linked images (for older browsers and IE), sets up images for responsive design layout */
+
+section {
+    padding: 3rem;
+}
+
+input, label, textarea {
+    color: white;
+    font-size: 1.3rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: 100;
+    transition: font-size 1s;
+}
+
+input, textarea {
+    background-color: transparent;
+    border: .1px solid white;
+    border-top: none;
+    border-color: rgba(255, 255, 255, .5);
+    margin-bottom: 3rem;
+    margin-top: .5rem;
+    transition: margin 1s;
+    padding: .2rem .5rem;
+    width: 100%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+footer {
+    align-items: center;
+    background-color: #2d3041;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    margin-top: 3rem;
+    padding: 2rem 0 1rem 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 2rem;
+    padding: 0;
+    transition: margin 1s;
+}
+
+li {
+    margin-bottom: .5rem;
+    width: fit-content;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, .4);
+}
+::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, .3);
+}
+
+
+/* causes a visual alert in browsers that do client-side checking of HTML5 email field – this may already be the default in some browsers. */
+
+.right {
+	float: right;
+	margin-left: 2rem;
+	clear: right;
+}
+.left {
+	float: left;
+	margin-right: 2rem;
+	clear: left;
+}
+	/* allows a quick shortcut for floating elements left and right while avoiding the “float quirk” problem */
+
+sub, sup {
+	line-height: 0;
+}
+    /* sets superscript and subscript text so that it doesn't throw off leading for elements in which they are included */
+
+::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: #87CEEB;
+}
+
+::selection {
+    color: black;
+    background: #87CEEB;
+}
+
+/* General Purpose classes */
+
+.flex-div {
+    display: flex;
+}
+
+.smooth-font-size {
+    transition: font-size 1s;
+}
+
+.text-cursor {
+    background-color: white;
+    color: transparent;
+    font-size: inherit;
+    margin-left: .25rem;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    width: .1px;
+}
+
+.blink-cursor {
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+}
+
+.hide-elem {
+    opacity: 0;
+}
+
+.appear {
+    transition: opacity 2s;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.no-display {
+    display: none;
+}
+
+.click:hover {
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.click:active {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.space {
+    margin: 0 .25rem;
+}
+
+/* Navigation Bar */
+
+.navbar {
+    align-items: center;
+    margin: 2rem;
+    position: absolute;
+    width: calc(100% - 4rem);
+    z-index: 1000;
+}
+
+.max-width {
+    width: 100%;
+}
+
+.nav-logo {
+    align-items: center;
+    display: flex;
+    padding-left: 1rem;
+    justify-content: center;
+    width: fit-content;
+}
+
+.hexagon {
+    height: 3rem;
+    position: absolute;
+    transform: rotate(90deg);
+    transition: width 1s, height 1s;
+    width: 3rem;
+}
+
+.nav-brand {
+    font-family: 'Poiret One', Arial;
+    font-size: 2.8rem;
+    font-weight: 500;
+    position: relative;
+    bottom: .2rem;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.nav-item {
+    margin-left: 2rem;
+    transition: margin-left 1s;
+}
+
+
+/* Home Page */
+
+#Home {
+    background: url("/static/images/bg.jpg");
+    background-size: cover;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.home-description {
+    position: absolute;
+    top: 35%;
+}
+.home-description > * {
+    margin-bottom: .5rem;
+}
+
+/* "Hi I'm Tharusha" */
+
+.greet-container {
+    align-items: center;
+    font-size: 3.5rem;
+}
+
+.greet {
+    font-size: inherit;
+    position: relative;
+}
+
+/* "I like to design and develop websites" */
+
+.intro-container {
+    font-size: 2.5rem;
+}
+
+.intro {
+    font-size: inherit;
+    font-weight: 100;
+}
+
+/* "Check out some of my work" */
+
+.button-box {
+    cursor: pointer;
+    position: relative;
+}
+.button-box:active > .button-shadow {
+    left: 0;
+    top: 0;
+}
+
+.mywork-dim {
+    height: calc(54px + .5rem);
+    width: calc(317px + .7rem);
+}
+
+.button {
+    border: none;
+    font-family: "Raleway", sans-serif;
+    width: fit-content;
+}
+
+.mywork-btn {
+    background-color: rgba(30, 31, 33);
+    opacity: .6;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.31rem;
+    font-weight: 100;
+    padding: .9rem 1.5rem;
+}
+
+.button-shadow {
+    color: transparent !important;
+    left: .5rem;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: absolute !important;
+    top: .5rem;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: left .1s, top .1s !important;
+    z-index: 1 !important;
+}
+
+/* Home Page --> Contact Info */
+
+#Contact {
+    bottom: 2rem;
+    font-size: 1rem;
+    position: absolute;
+    right: 2rem;
+}
+
+.contact-img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.contact-box {
+    height: 2rem;
+    margin-bottom: .5rem;
+    position: relative;
+}
+
+.contact-box:hover > .contact-info {
+    padding-left: 1rem;
+}
+
+.contact-box:hover > #Github {
+    width: 8rem;
+}
+
+.contact-box:hover > #Phone {
+    width: 11.25rem;
+}
+
+.contact-box:hover > #Email {
+    width: 21.75rem;
+}
+
+.contact-box:hover > #LinkedIn {
+    width: 9rem;
+}
+
+.contact-box:hover > .contact-info > .contact-text {
+    transition: opacity 1s;
+    transition-delay: 1s;
+    opacity: 1;
+}
+
+.contact-box:hover > .contact-info > .contact-ico {
+    padding-right: .5rem;
+    transition: opacity 1s;
+    transition-delay: 1s;
+    opacity: 1;
+}
+
+.contact-info {
+    align-items: center;
+    background-color: #181a23;
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: width 1s, padding 1s;
+    width: 2rem;
+    z-index: -10;
+}
+
+.contact-text {
+    color: white;
+    font-family: "Raleway";
+    font-weight: initial;
+    opacity: 0;
+    position: relative;
+}
+
+.contact-ico {
+    transition: padding 1s;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Home Page --> Responsive design */
+
+@media (max-width: 1300px) {
+    .greet-container {
+        font-size: 3rem;
+    }
+
+    .intro-container {
+        font-size: 2rem;
+    }
+
+    .mywork-btn {
+        font-size: 1.26rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    body {
+        font-size: 1.2rem;
+    }
+
+    .nav-brand {
+        font-size: 2.5rem;
+    }
+
+    .hexagon {
+        height: 2.7rem;
+        width: 2.7rem;
+    }
+
+    .greet-container {
+        font-size: 2.5rem;
+    }
+
+    .intro-container {
+        font-size: 1.5rem;
+    }
+
+    .mywork-btn {
+        font-size: 1.16rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-brand {
+        font-size: 2rem;
+    }
+
+    .hexagon {
+        height: 2.2rem;
+        width: 2.2rem;
+    }
+
+    .nav-list {
+        font-size: 1rem;
+    }
+
+    .nav-item {
+        margin-left: 1.5rem;
+    }
+}
+
+/* About me Page */
+
+.section-header {
+    border: 1px solid white;
+    border-color: transparent transparent white transparent;
+    transition: font-size 1s;
+    width: fit-content;
+}
+
+.download {
+    border: 1px solid grey;
+    border-color: transparent transparent grey transparent;
+    cursor: pointer;
+}
+
+.section-para {
+    margin-top: 1.5rem;
+    text-align: justify;
+}
+
+.me-container {
+    align-items: center;
+    display: flex;
+    margin-top: 3rem;
+    height: fit-content;
+    width: 100%;
+}
+
+.me-img {
+    height: 15rem;
+    margin-right: 5rem;
+    opacity: .5;
+    transition: opacity 1s, margin 1s, height 1s, width 1s;
+    width 15rem;
+}
+.me-img:hover {
+    opacity: 1;
+}
+
+.skill-container {
+    height: 11rem;
+    position: relative;
+    width: inherit;
+}
+
+.skill {
+    font-family: "Fira Code", monospace;
+    font-size: 1.2rem;
+    position: absolute;
+    transition: font-size 1s, left 1s, top 1s, bottom 1s;
+}
+
+.html {
+    left: 5vw;
+}
+
+.css {
+    left: 18vw;
+    top: 1.2rem;
+}
+
+.js {
+    left: 11vw;
+    top: 5rem;
+}
+
+.flask {
+    bottom: 0;
+}
+
+.selenium {
+    bottom: 1rem;
+    left: 21vw;
+}
+
+.sqlalchemy {
+    left: 27vw;
+    top: 3rem;
+}
+
+.bootstrap {
+    left: 37vw;
+    top: 7rem;
+}
+
+.beautifulsoup {
+    left: 41vw;
+    top: 2rem;
+}
+
+.python {
+    left: 53vw;
+    top: 5rem;
+}
+
+/* About me ---> Responsive Design */
+
+@media (max-width: 1000px) {
+    .section-header {
+        font-size: 1.3rem;
+    }
+
+    .skill {
+        font-size: 1rem;
+    }
+
+    .me-img {
+        height: 12rem;
+        width: 12rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .me-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .skill-container {
+        margin-top: 2rem;
+    }
+
+    .beautifulsoup {
+        left: 65vw;
+    }
+
+    .python {
+        left: 68vw;
+    }
+
+    .sqlalchemy {
+        left: 40vw;
+        top: 4rem;
+    }
+
+    .css {
+        left: 30vw;
+    }
+
+    .selenium {
+        left: 25vw;
+    }
+
+    .flask {
+        left: 8vw;
+    }
+
+    .js {
+        left: 13vw;
+    }
+
+    .bootstrap {
+        left: 50vw;
+        top: 8rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .beautifulsoup {
+        left: 50vw;
+    }
+
+    .python {
+        left: 66vw;
+    }
+
+    .sqlalchemy {
+        top: 5rem;
+    }
+
+    .selenium {
+        top: 7rem;
+    }
+
+    .js {
+        top: 4rem;
+        left: 6vw;
+    }
+}
+
+
+/* My Projects */
+
+.carousal-box {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.chevron-box {
+    align-items: center;
+    display: flex;
+    height: 9vw;
+    justify-content: center;
+    position: absolute;
+    transition: right 1s, left 1s;
+    width: fit-content;
+}
+
+.chevron {
+    cursor: pointer;
+    width: 5vw;
+    height: 5vw;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+.left-caret {
+    transform: rotate(180deg);
+    left: 9vw;
+}
+
+.right-caret {
+    right: 9vw;
+}
+
+.tile {
+    transition: width 1s, margin 1s;
+    position: relative;
+    width: 70%;
+}
+
+.carousal-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.slide-box {
+    display: flex;
+}
+
+.slide {
+    background-color: white;
+    margin: 0 .5rem;
+    opacity: .5;
+    width: 5rem;
+}
+
+.active {
+    opacity: 1;
+}
+
+.tile-description {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.tag-box {
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    position: absolute;
+    transition: height 1s;
+    width: 100%;
+}
+
+.edomain-pos {
+    bottom: .36rem;
+}
+
+.mct-pos {
+    bottom: .35rem;
+}
+
+.tag {
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: margin 1s, font-size 1s;
+    margin: 0 2rem;
+}
+
+/* My Projects ---> responsive */
+
+@media (max-width: 1000px) {
+    .carousal-box {
+        margin-top: 3rem;
+    }
+
+    .tile {
+        width: 90%;
+    }
+
+    .left-caret {
+        left: 2vw;
+    }
+
+    .right-caret {
+        right: 2vw;
+    }
+
+    .edomain-pos {
+        bottom: .27rem;
+    }
+
+    .mct-pos {
+        bottom: .3rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .carousal-top {
+        margin-top: 2rem;
+    }
+
+    .left-caret {
+        left: 4vw;
+    }
+
+    .right-caret {
+        right: 4vw;
+    }
+
+    .tag-box {
+        height: 2rem;
+    }
+
+    .tag {
+        margin: 0 1rem;
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .tag {
+        margin: 0 .5rem;
+    }
+}
+
+/* Message */
+
+.message-box {
+    margin-top: 2rem;
+}
+
+.input-box {
+    width: 100%;
+}
+
+.email-box {
+    margin-left: 5rem;
+    transition: margin 1s;
+}
+
+.message {
+    height: 10rem;
+}
+
+.warning {
+    color: red;
+    font-size: 1rem;
+    margin-left: .1rem;
+}
+
+.send-box {
+    justify-content: center;
+    width: 100%;
+}
+
+.send-dim {
+    height: calc(54px + .3rem);
+    width: calc(162px + .3rem);
+}
+
+.send-btn {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 9px;
+    color: black;
+    font-size: 1.37rem;
+    font-weight: 400;
+    padding: .9rem 3.5rem;
+    position: relative;
+    transition: font-size 1s, padding 1s;
+    z-index: 10;
+}
+
+.send-shadow {
+    left: .3rem;
+    top: .3rem;
+}
+
+@media (max-width: 1000px) {
+    input, label, textarea {
+        font-size: 1.1rem;
+    }
+
+    .send-btn {
+        font-size: 1.17rem;
+        padding: .8rem 3rem;
+    }
+
+    .send-dim {
+        height: calc(54px + .2rem);
+        width: calc(162px - .2rem);
+    }
+
+    .email-box {
+        margin-left: 3rem;
+    }
+
+    input, textarea {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .email-box {
+        margin-left: 1rem;
+    }
+
+    input, textarea {
+        margin-bottom: 1rem;
+    }
+
+    .send-dim {
+        height: 54px;
+        width: calc(162px - .7rem);
+    }
+
+    .send-btn {
+        padding: .6rem 2.5rem;
+    }
+}
+
+/* Footer */
+
+.link-box {
+    display: flex;
+}
+
+.footer-title {
+    font-size: 1.3rem;
+    margin: 0 0 1rem 2rem;
+    transition: margin 1s;
+}
+
+.footer-link {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    text-decoration: underline;
+    transition: font-size 1s;
+}
+
+.arrow-up-right-from-square {
+    height: 1.1rem;
+    width: 1.1rem;
+    margin-left: .5rem;
+}
+
+.reference-box {
+    align-items: center;
+    display: flex;
+    font-family: "Raleway Dots", cursive;
+    margin: 1.5rem 0 3rem 0;
+    transition: font-size 1s, margin 1s;
+}
+
+.github-code {
+    height: 2rem;
+    width: 2rem;
+    transition: height 1s, width 1s;
+}
+
+.reference-link {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: font-size 1s;
+}
+
+@media (max-width: 1000px) {
+    .copyright {
+        font-size: 1.02rem;
+    }
+
+    .reference-box {
+        margin: 1.5rem 0 2rem 0;
+    }
+}
+
+@media (max-width: 950px) {
+    .footer-title {
+        font-size: 1.1rem;
+    }
+
+    .footer-link {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 860px) {
+    .footer-title {
+        font-size: .9rem;
+    }
+
+    .footer-link {
+        font-size: .8rem;
+    }
+
+    .reference-box {
+        font-size: .9rem;
+    }
+
+    .github-code {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-title {
+        margin: 0 0 .5rem 1rem;
+    }
+
+    ul {
+        margin: 0 1rem;
+    }
+
+    .reference-box {
+        margin: 1rem 0 1.5rem 0;
+    }
+}
+
+/* Animations */
+
+@keyframes blink {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: .1px;
+    }
+}
