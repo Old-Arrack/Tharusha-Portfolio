@@ -16,7 +16,7 @@ var greet_text = "Hi, I'm Tharusha";
 var greet_elem = document.querySelector(".greet");
 
 var intro_cursor = document.querySelector(".intro-cursor");
-var intro_text = "I like to design and develop websites";
+var intro_text = "Code is clearly redeployed!";
 var intro_elem = document.querySelector(".intro");
 
 var remaining_elem = [".navbar", ".button-box", "#Contact"];
